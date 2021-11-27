@@ -24,7 +24,6 @@
       `;
       blitzboard.showLoader();
       $.get(`https://dbpedia.org/sparql?query=${encodeURIComponent(query)}&format=json`, (result) => {
-        let newPg = editor.getValue();
         for(let b of result.results.bindings) {
           let id = b.airport.value.replaceAll(/.*\//g, '');
           if(blitzboard.nodeMap[id])
