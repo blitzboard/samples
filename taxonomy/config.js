@@ -1,4 +1,3 @@
-
 {
   node: {
     caption: ['name'],
@@ -8,26 +7,40 @@
       blitzboard.showLoader();
 
       let query = `
-      select ?url?name ?thumb where  {
-        wd:${n.id} wdt:P171 ?url.
+      SELECT ?url ?rank ?name ?name_ja ?thumb ?descr_ja WHERE {
+        wd:${n.id} wdt:P171 ?url .
         ?url wdt:P31 wd:Q16521 ;
-             rdfs:label ?name .
+             wdt:P105/rdfs:label ?rank ;
+             wdt:P225 ?name ;
+             rdfs:label ?name_ja .
         OPTIONAL {
           ?url wdt:P18 ?thumb .
         }
-        FILTER(lang(?name) = 'ja')
+        OPTIONAL {
+          ?url <http://schema.org/description> ?descr_ja .
+          FILTER(lang(?descr_ja) = 'ja')
+        }
+        FILTER(lang(?rank) = 'en')
+        FILTER(lang(?name_ja) = 'ja')
       }
       `;
 
       let query2 = `
-      select ?url ?name ?thumb where  {
+      SELECT ?url ?rank ?name ?name_ja ?thumb ?descr_ja WHERE {
         ?url wdt:P171 wd:${n.id} .
         ?url wdt:P31 wd:Q16521 ;
-             rdfs:label ?name .
+             wdt:P105/rdfs:label ?rank ;
+             wdt:P225 ?name ;
+             rdfs:label ?name_ja .
         OPTIONAL {
           ?url wdt:P18 ?thumb .
         }
-        FILTER(lang(?name) = 'ja')
+        OPTIONAL {
+          ?url <http://schema.org/description> ?descr_ja .
+          FILTER(lang(?descr_ja) = 'ja')
+        }
+        FILTER(lang(?rank) = 'en')
+        FILTER(lang(?name_ja) = 'ja')
       }
       `;
       
@@ -39,9 +52,14 @@
             labels: ['Taxon'],
             properties: {
               url: [b.url.value],
-              name: [b.name.value],
+              'taxon rank': [b.rank.value],
+              'taxon name': [b.name.value],
+              name: [b.name_ja.value],
             }
           };
+          if (b.descr_ja?.value) {
+            node.properties.description = [b.descr_ja.value];
+          }
           if (b.thumb?.value) {
             node.properties.thumbnail = [b.thumb.value];
           }
@@ -69,9 +87,14 @@
             labels: ['Taxon'],
             properties: {
               url: [b.url.value],
-              name: [b.name.value],
+              'taxon rank': [b.rank.value],
+              'taxon name': [b.name.value],
+              name: [b.name_ja.value],
             }
           };
+          if (b.descr_ja?.value) {
+            node.properties.description = [b.descr_ja.value];
+          }
           if (b.thumb?.value) {
             node.properties.thumbnail = [b.thumb.value];
           }
