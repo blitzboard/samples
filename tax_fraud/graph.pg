@@ -1,0 +1,141 @@
+# Family 0
+
+101 :Person name:"Ali Zarrar Khan"   gendar:M
+102 :Person name:"Mumtaz Zarrar"     gendar:F
+103 :Person name:"Babar Zarrar Khan" gendar:M
+101 -> 102 :has_spouse
+102 -> 101 :has_spouse
+101 -> 103 :has_child
+
+101 -> 201 :has_income  year:2018
+201 :Income   amount:1000000 from:"XYZ Corp"
+
+101 -> 301 :has_asset since:2015
+101 -> 401 :has_asset since:2016
+102 -> 402 :has_asset since:2017
+301 :Car      brand:"Nissan" size_cc:1000
+401 :Property type:House size_yard:300 location:"F6 Islamabad"
+402 :Property type:House size_yard:400 location:"Bani Gala"
+
+101 -> 901 :declared year:2018
+901 :Tax amount:51500
+
+101 -> 501 :has_account since:2013
+101 -> 502 :has_account since:2015
+501 :Account balance:1000000 bank:HBL
+502 :Account balance:2000000 foreign:true
+
+103 -> 601 :goes_school  since:2017
+601 :School name:"Imperial College Islamabad" fee:200000
+
+502 -> 503 :transfers amount:200
+503 :Account balance:3000000 bank:"HBL Dubai" foreign:true
+
+# Family 1
+
+111 :Person name:"Jamshed Patel"  gender:male
+112 :Person name:"Naila Jamshed"  gender:female
+113 :Person name:"Simran Jamshed" gender:female
+111 -> 112 :has_spouse
+112 -> 111 :has_spouse
+111 -> 113 :has_child
+112 -> 113 :has_child
+
+111 -> 911 :declared year:2018
+911 :Tax amount:120000
+
+111 -> 211 :has_income  year:2018
+211 :Income amount:2400000 from:"Habib Bank"
+
+111 -> 511 :has_account since:2013
+112 -> 512 :has_account since:2014
+511 :Account balance:1000000 bank:HBL
+512 :Account balance:200000 bank:HBL
+
+111 -> 311 :has_asset since:2015
+111 -> 411 :has_asset since:2016
+311 :Car   size_cc:1500   brand:"Honda 2015 model"
+411 :Property type:House size_yard:500 location:"Bani Gala"
+
+113 -> 611 :goes_school
+611 :School name:"Beacon House" fee:120000
+
+# Family 2
+
+121 :Person name:"Jahanzeb Khan"        gender:M
+122 :Person name:"Sumaira Khan"         gender:F
+123 :Person name:"Aqib Jahanzeb Khan"   gender:M
+124 :Person name:"Sultan Jahanzeb Khan" gender:M
+121 -> 122 :has_spouse
+122 -> 121 :has_spouse
+121 -> 123 :has_child
+122 -> 123 :has_child
+121 -> 124 :has_child
+122 -> 124 :has_child
+
+121 -> 921 :declared year:2018
+122 -> 922 :declared year:2018
+921 :Tax amount:200000
+922 :Tax amount:50000
+
+121 -> 221 :has_income year:2018
+122 -> 222 :has_income year:2018
+221 :Income amount:4000000 from:"Air Travels"
+222 :Income amount:1500000 from:"Govt High School"
+
+121 -> 321 :has_asset since:2015
+321 :House size_yard:100 location:"Bahria Town"
+
+124 -> 621 :goes_school
+621 :School name:"Bahria University" fee:200000
+
+# Family 3
+
+131 :Person name:"Yousaf Haq"     gender:M
+132 :Person name:"Mehreen Yousaf" gender:F
+131 -> 132 :has_spouse
+132 -> 131 :has_spouse
+
+131 -> 231 :has_income year:2018
+231 :Income amount:4000000 from:"Air Travels"
+
+131 -> 421 :has_asset since:2012
+131 -> 422 :has_asset since:2013
+131 -> 423 :has_asset since:2014
+132 -> 324 :has_asset since:2018
+421 :Property type:House size_yard:100 location:"Chaklala Street"
+422 :Property type:Plot location:"DHA Islamabad"
+423 :Property type:Plot location:"Bahria Town Pindi"
+324 :Car size_cc:1000 brand:"Toyota" model:2018
+
+# Family 4
+
+141 :Person name:"Usman Shah"  gender:M
+142 :Person name:"Marium Shah" gender:F
+143 :Person name:"Zain Shah"   gender:M
+141 -> 142 :has_spouse
+142 -> 141 :has_spouse
+141 -> 143 :has_child
+142 -> 143 :has_child
+
+141 -> 941 :declared year:2018
+941 :Tax amount:600000
+
+141 -> 241 :has_income year:2018
+241 :Income amount:12000000 from:"Akram General Store Rawalpindi"
+
+141 -> 541 :has_account
+142 -> 542 :has_account
+143 -> 543 :has_account
+541 :Account balance:1000000 bank:"UBL"
+542 :Account balance:3000000 bank:"HBL Dubai" foreign:true
+543 :Account balance:2500000 bank:"SCB"
+
+142 -> 441 :has_asset
+142 -> 341 :has_asset
+143 -> 342 :has_asset
+441 :Property type:House size_yard:500 location:"F6 Islamabad"
+341 :Car size_cc:2000 brand:"Toyota" model:2018
+342 :Car size_cc:1800 brand:"Honda" model:2016
+
+143 -> 601 :goes_school
