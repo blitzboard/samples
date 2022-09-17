@@ -1,0 +1,10 @@
+Alice :person age:15
+Bob :person age:15
+
+Alice -> Choco :has since:2015
+Bob -> Shiro :has since:2017
+
+Choco :dog color:chocolate
+Shiro :dog color:silver
+
+Choco -- Shiro :friend since:2018
