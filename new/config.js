@@ -21,23 +21,7 @@
     opacity: 0.5,
   },
   
-  layout: 'default',
-  extraOptions: {
-    physics:{
-      solver: 'barnesHut',
-      barnesHut: {
-        gravitationalConstant: -5000,
-        centralGravity: 0,
-        springLength: 300,
-        springConstant: 0.01,
-        damping: 0.2,
-      },
-      minVelocity: 0.2,
-      stabilization: {
-        enabled: false,
-      },
-    },
-  },
+  layout: 'force',
   
   /*
   layout: 'hierarchical',
